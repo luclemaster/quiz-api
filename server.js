@@ -18,13 +18,13 @@ app.get('/quizzes', (request, response) => {
     response.json(metadata);
 });
 app.get('/quiz/:id', (request, response) => {
-    let searchFor = request.params.name;
-    let found = data.quizzes.find(x => x.name === searchFor);
+    let searchFor = request.params.id;
+    let found = data.quizzes.find(x => x.id === searchFor);
     if(found) {
         response.json(found);
     }
     else{
-        response.status(404).json({error: `The place ${searchFor} could not be found`});
+        response.status(404).json({error: `The question ${searchFor} could not be found`});
     }
 });
 app.listen(port, () => {
