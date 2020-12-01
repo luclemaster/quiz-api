@@ -9,7 +9,6 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/', (request, response) => {
-    response.send("Welcome to quiz api");
     response.send(data.scores);
 });
 app.get('/quizzes', (request, response) => {
