@@ -19,7 +19,7 @@ app.get('/quizzes', (request, response) => {
 });
 app.get('/quiz/:id', (request, response) => {
     let searchFor = request.params.id;
-    let found = data.quizzes.find(x => x.id === searchFor);
+    let found = data.quizzes.find(x => x.id == searchFor);
     if(found) {
         response.json(found);
     }
