@@ -4,7 +4,10 @@ const app = express();
 const port = process.env.PORT || 3005;
 var cors = require('cors');
 var data = require('./data');
+var bodyParser = require('body-parser')
 app.use(cors());
+app.use(bodyParser.json());
+
 app.get('/', (request, response) => {
     response.send('hello world');
 });
@@ -16,5 +19,11 @@ app.get('/quizzes', (request, response) => {
 });
 app.listen(port, () => {
     
-    console.log(`example app listening on port ${port}!`);
+});
+app.post('/score', (request, response) => {
+    let username = request.body.username;
+    let quizid = request.body.quizid;
+    let score = request.body.score;
+    data.scores.push({score: score, quizid: quizid, username: username});
+    response.json({message: `The score was added successfully`});
 });
