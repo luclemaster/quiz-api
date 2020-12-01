@@ -9,7 +9,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/', (request, response) => {
-    response.send(data.scores);
+    response.send("Welcome to quiz api");
 });
 app.get('/quizzes', (request, response) => {
     let metadata = data.quizzes.map(x => {
@@ -18,7 +18,7 @@ app.get('/quizzes', (request, response) => {
     response.json(metadata);
 });
 app.listen(port, () => {
-    
+    response.send(data.scores);
 });
 app.post('/score', (request, response) => {
     let username = request.body.username;
