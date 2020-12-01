@@ -9,7 +9,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/', (request, response) => {
-    response.send('hello world');
+    response.send(data.scores);
 });
 app.get('/quizzes', (request, response) => {
     let metadata = data.quizzes.map(x => {
