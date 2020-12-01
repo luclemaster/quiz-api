@@ -17,6 +17,16 @@ app.get('/quizzes', (request, response) => {
     });
     response.json(metadata);
 });
+app.get('/quiz/:id', (request, response) => {
+    let searchFor = request.params.name;
+    let found = data.quizzes.find(x => x.name === searchFor);
+    if(found) {
+        response.json(found);
+    }
+    else{
+        response.status(404).json({error: `The place ${searchFor} could not be found`});
+    }
+});
 app.listen(port, () => {
 
 });
